@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "78797943560",
+    "project_id": "gdsc-store",
+    "storage_bucket": "gdsc-store.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:78797943560:android:6aa67c504e2f6302d5f2bd",
+        "android_client_info": {
+          "package_name": "come.qbase.gd_store"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "78797943560-gjvbue3aknc8q1ro315jmnk01ugdvioi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhVKa1VRXoTnHPMEXsJBbvCF2ydUxQ4tA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "78797943560-gjvbue3aknc8q1ro315jmnk01ugdvioi.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "78797943560-9d9mpk5hh1upl7o9160qgalu82ml0jvq.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "come.qbase.gdStore"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:78797943560:android:b6ce4e2a6f9fcd85d5f2bd",
+        "android_client_info": {
+          "package_name": "come.gdsc_store.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "78797943560-gjvbue3aknc8q1ro315jmnk01ugdvioi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhVKa1VRXoTnHPMEXsJBbvCF2ydUxQ4tA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "78797943560-gjvbue3aknc8q1ro315jmnk01ugdvioi.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "78797943560-9d9mpk5hh1upl7o9160qgalu82ml0jvq.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "come.qbase.gdStore"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
