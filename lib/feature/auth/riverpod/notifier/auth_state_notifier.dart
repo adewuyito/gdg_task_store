@@ -1,4 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:gd_store/feature/profile/riverpod/user_payload_provider.dart';
+import 'package:gd_store/utils/helpers/utils.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'package:gd_store/feature/auth/domain/auth.dart';
@@ -68,8 +70,6 @@ class AuthStateNotifier extends StateNotifier<AuthState> {
       isLoading: false,
       userId: userId,
     );
-
-    // TODO : UPDATE USERMODEL
   }
 
   Future<void> signUpWithCredentials({
@@ -115,16 +115,25 @@ class AuthStateNotifier extends StateNotifier<AuthState> {
     );
   }
 
-  Future<void> updateUserName({required String name}) async {
+  Future<void> updateUserName({
+    required String name,
+    required BuildContext context,
+  }) async {
     state = state.copiedWithIsLoading(true);
 
     final result = await _authenticator.updateUserName(newName: name);
 
-    if (result == AuthResult.aborted || result == AuthResult.failure) {
+    if (result != AuthResult.aborted && result != AuthResult.failure) {
       ref
           .read(userProvider.notifier)
           .updateUser(id: state.userId!, displayImage: name);
-      // TODO : Show snack bar auth change not valid
+      if (context.mounted) {
+        SnackbarUtils.of(context).errorSnackBar("Seccesful", false);
+      }
+    } else {
+      if (context.mounted) {
+        SnackbarUtils.of(context).errorSnackBar("Error updating Name");
+      }
     }
 
     state = state.copiedWithIsLoading(false);

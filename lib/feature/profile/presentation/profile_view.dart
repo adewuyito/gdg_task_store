@@ -33,7 +33,6 @@ class ProfileView extends ConsumerWidget {
           } else {
             log('User is null');
           }
-          // log(_profile.toString());
         },
       ),
       appBar: AppBar(
@@ -80,19 +79,19 @@ class ProfileView extends ConsumerWidget {
                   Center(
                     child: ProfileImage(image: _profile.displayImage!),
                   ),
-                  SizedBox(height: 16),
+                  const SizedBox(height: 16),
                   Text(
                     _profile.fullname,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 25,
                       fontFamily: FontFamily.athletics,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(height: 0),
+                  const SizedBox(height: 0),
                   Text(
                     _profile.email ?? '',
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 20,
                       fontFamily: FontFamily.athletics,
                       fontWeight: FontWeight.w500,

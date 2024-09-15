@@ -30,9 +30,6 @@ class GDRouter extends RootStackRouter {
   AuthGuard authGuard;
 
   @override
-  late final List<AutoRouteGuard> guards = [authGuard];
-
-  @override
   RouteType get defaultRouteType => const RouteType.adaptive();
 
   @override
@@ -40,17 +37,18 @@ class GDRouter extends RootStackRouter {
         routeWithFadeTransition(page: LoginRoute.page),
         routeWithFadeTransition(page: SignUpRoute.page),
 
-        routeWithFadeTransition(page: ProductListRoute.page, initial: true),
-        routeWithFadeTransition(page: ProductItemRoute.page),
+        routeWithFadeTransition(page: ProductListRoute.page, initial: true, routeGuards: [authGuard]),
+        routeWithFadeTransition(page: ProductItemRoute.page, routeGuards: [authGuard]),
 
         // make nested
-        routeWithFadeTransition(page: ProfileRoute.page),
-        routeWithFadeTransition(page: ProfileEditRoute.page)
+        routeWithFadeTransition(page: ProfileRoute.page, routeGuards: [authGuard]),
+        routeWithFadeTransition(page: ProfileEditRoute.page, routeGuards: [authGuard])
       ];
   CustomRoute routeWithFadeTransition({
     required PageInfo page,
     bool initial = false,
     String? path,
+    List<AutoRouteGuard> routeGuards = const [],
     Widget Function(
       BuildContext,
       Animation<double>,
@@ -66,6 +64,7 @@ class GDRouter extends RootStackRouter {
       transitionsBuilder: transitionsBuilder,
       durationInMilliseconds: 400,
       children: children,
+      guards: routeGuards
     );
   }
 }

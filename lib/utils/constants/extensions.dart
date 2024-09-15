@@ -1,3 +1,8 @@
+import 'dart:io';
+
+import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
+
 extension StringExtensions on String {
   String get capitalize {
     return '${this[0].toUpperCase()}${substring(1)}';
@@ -15,4 +20,17 @@ extension IndexedIterable<E> on Iterable<E> {
     var index = 0;
     return map((e) => f(e, index++));
   }
+}
+
+extension ToTextWidget on String {
+  Widget get toText => Text(this);
+}
+
+
+extension ToFile on Future<XFile?> {
+  Future<File?> get toFile => then(
+        (xFile) => xFile?.path,
+      ).then(
+        (filePath) => filePath != null ? File(filePath) : null,
+      );
 }

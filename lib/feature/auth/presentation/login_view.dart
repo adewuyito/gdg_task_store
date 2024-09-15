@@ -40,9 +40,6 @@ class LoginView extends HookConsumerWidget {
           onResult.call(ref.watch(isLoggedInProvider));
         }
 
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Logging in...')),
-        );
         return null;
       } else {
         SnackbarUtils.of(context)

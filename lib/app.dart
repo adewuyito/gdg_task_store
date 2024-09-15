@@ -1,6 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:gd_store/routes/router.dart';
+import 'package:gd_store/shared/components/loading/loading_screen.dart';
+import 'package:gd_store/shared/providers/is_loading_provider.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'utils/constants/constants.dart';
@@ -10,23 +12,28 @@ class GDApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // final isLoggedIn = ref.read(authStateProvider.notifier);
-    // return logedIn ? const ProfileView() : const SignUpView();
-
     final router = ref.watch(gdRouteProvider);
     final media = MediaQuery.of(context);
     Dims.setSize(media);
+
+    ref.listen(
+      isLoadingProvider,
+      (_, isLoading) {
+        isLoading
+            ? LoadingScreen.instance().show(context: context)
+            : LoadingScreen.instance().hide();
+      },
+    );
 
     return MaterialApp.router(
       routerDelegate: AutoRouterDelegate(
         router,
         navigatorObservers: () => [GDNavigatorObserver()],
       ),
-      // routerConfig: router.config(
-      //   reevaluateListenable: isLoggedIn,
-      // ),
       routeInformationParser: router.defaultRouteParser(),
-      routeInformationProvider: router.routeInfoProvider(),
+      routeInformationProvider: router.routeInfoProvider(
+        initialRouteInformation: RouteInformation()
+      ),
       backButtonDispatcher: RootBackButtonDispatcher(),
       debugShowCheckedModeBanner: false,
       theme: appTheme,

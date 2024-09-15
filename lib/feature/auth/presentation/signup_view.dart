@@ -37,8 +37,6 @@ class _SignupViewState extends ConsumerState<SignUpView> {
             password: _passwordController.text,
           ); // TODO: Work on validator
 
-      // TODO: Use custom route
-
       _emailController.clear();
       _nameController.clear();
       _rePasswordController.clear();
@@ -106,13 +104,6 @@ class _SignupViewState extends ConsumerState<SignUpView> {
                     },
                   ),
                   const SizedBox(height: 20),
-                  // RichTwoPartText(
-                  //   firstPart: "Already have an account",
-                  //   secondPart: "Login",
-                  //   linkTap: () {
-                  //     GDNavigator.of(context).;
-                  //   },
-                  // )
                 ],
               ),
             ),

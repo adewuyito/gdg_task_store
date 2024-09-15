@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 
 import 'constants.dart';
-import 'text_theme.dart';
 import '../../gen/fonts.gen.dart';
 
 final baseTheme = ThemeData.light();
@@ -77,7 +76,7 @@ final ThemeData appTheme = baseTheme.copyWith(
       fontFamily: FontFamily.generalSans,
     ),
   ),
-  textTheme: cuddleTextTheme.apply(
+  textTheme: baseTheme.textTheme.apply(
     fontFamily: FontFamily.generalSans,
     bodyColor: appColors.black,
   ),
