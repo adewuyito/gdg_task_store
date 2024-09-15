@@ -32,7 +32,7 @@ class GDApp extends ConsumerWidget {
       ),
       routeInformationParser: router.defaultRouteParser(),
       routeInformationProvider: router.routeInfoProvider(
-        initialRouteInformation: RouteInformation()
+  
       ),
       backButtonDispatcher: RootBackButtonDispatcher(),
       debugShowCheckedModeBanner: false,
